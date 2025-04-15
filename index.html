@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomofocus</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/df8716f54d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- header section -->
+    <header>
+      <div class="heading">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Pomofocus</span>
+        <div class="line"></div>
+      </div>
+    </header>
+
+    <!-- main section -->
+    <main>
+      <section class="sectionMain">
+        <div class="threeOptions">
+          <div
+            class="option active"
+            data-minutes="25"
+            data-bg="#ba4949"
+            id="pomodoro"
+          >
+            Pomodoro
+          </div>
+          <div
+            class="option"
+            data-minutes="5"
+            data-bg="#38858A"
+            id="shortBreak"
+          >
+            Short Break
+          </div>
+          <div
+            class="option"
+            data-minutes="15"
+            data-bg="#397097"
+            id="longBreak"
+          >
+            Long Break
+          </div>
+        </div>
+        <div class="timeSection">
+          <span id="minutes">25</span><span>:</span><span id="seconds">00</span>
+        </div>
+        <div class="control">
+          <button id="start" class="btn">Start</button>
+          <i class="fa-solid fa-circle-pause"></i>
+        </div>
+      </section>
+    </main>
+    <!-- audio element -->
+    <audio src="audio/clickysound.wav" id="clickSound"></audio>
+    <audio src="audio/cheer.wav" id="cheerSound"></audio>
+    <script src="app.js"></script>
+  </body>
+</html>
