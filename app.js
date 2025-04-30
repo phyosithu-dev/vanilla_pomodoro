@@ -8,6 +8,10 @@ const clickSound = document.getElementById("clickSound");
 const cheerSound = document.getElementById("cheerSound");
 const focusTimes = document.getElementById("focusTimes");
 const focusStatus = document.getElementById("focusStatus");
+const addTask = document.getElementById("addTask");
+const increment = document.getElementById("increment");
+const decrement = document.getElementById("decrement");
+const pomodoroCount = document.getElementById("pomodoroCount");
 
 // States
 let pomodoro = 0;
@@ -23,6 +27,23 @@ const durations = {
   shortBreak: 5,
   longBreak: 15,
 };
+
+// add the event listeners to the increment and decrement buttons
+increment.addEventListener("click", () => {
+  clickSound.currentTime = 0;
+  clickSound.play();
+  pomodoroCount.innerText = Number(pomodoroCount.innerText) + 1;
+});
+
+decrement.addEventListener("click", () => {
+  clickSound.currentTime = 0;
+  clickSound.play();
+  if (Number(pomodoroCount.innerText) > 1) {
+    pomodoroCount.innerText = Number(pomodoroCount.innerText) - 1;
+  } else {
+    alert("Pomodoro count cannot be less than 1.");
+  }
+});
 //add event listeners to the focusTimes
 focusTimes.addEventListener("click", () => {
   let result = confirm("Do you want to rest the pomodoro count?");
