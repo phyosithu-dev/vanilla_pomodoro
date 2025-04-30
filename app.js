@@ -6,9 +6,12 @@ const secondsTime = document.getElementById("seconds");
 const forwardIcon = document.querySelector(".fa-forward");
 const clickSound = document.getElementById("clickSound");
 const cheerSound = document.getElementById("cheerSound");
+const focusTimes = document.getElementById("focusTimes");
+const focusStatus = document.getElementById("focusStatus");
 
 // States
 let pomodoro = 0;
+let totalCount = 1;
 
 let timer;
 let isRunning = false;
@@ -20,6 +23,15 @@ const durations = {
   shortBreak: 5,
   longBreak: 15,
 };
+//add event listeners to the focusTimes
+focusTimes.addEventListener("click", () => {
+  let result = confirm("Do you want to rest the pomodoro count?");
+  if (result) {
+    pomodoro = 0;
+    totalCount = 1;
+    focusTimes.innerText = `#${totalCount}`;
+  }
+});
 
 // Add event listeners to the options
 threeOptions.forEach((option) => {
@@ -53,19 +65,31 @@ function switchOption(optionId) {
 function handleTransition() {
   const activeOption = document.querySelector(".option.active");
   const id = activeOption.id;
+  console.log(focusStatus);
 
   if (id === "pomodoro") {
     pomodoro++;
+    totalCount++;
 
     if (pomodoro < 4) {
       switchOption("shortBreak");
+      focusStatus.innerText = "Time for a break!";
+      focusTimes.innerText = `#${(totalCount -= 1)}`;
     } else {
       switchOption("longBreak");
+      focusStatus.innerText = "Time for a break!";
+      focusTimes.innerText = `#${(totalCount -= 1)}`;
     }
   } else if (id === "shortBreak") {
+    totalCount++;
     switchOption("pomodoro");
+    focusStatus.innerText = "Time to focus!";
+    focusTimes.innerText = `#${totalCount}`;
   } else if (id === "longBreak") {
+    totalCount++;
     switchOption("pomodoro");
+    focusStatus.innerText = "Time to focus!";
+    focusTimes.innerText = `#${totalCount}`;
     pomodoro = 0; // Reset after long break
   }
 }
