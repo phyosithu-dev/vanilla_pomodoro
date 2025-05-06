@@ -8,10 +8,13 @@ const clickSound = document.getElementById("clickSound");
 const cheerSound = document.getElementById("cheerSound");
 const focusTimes = document.getElementById("focusTimes");
 const focusStatus = document.getElementById("focusStatus");
-const addTask = document.getElementById("addTask");
 const increment = document.getElementById("increment");
 const decrement = document.getElementById("decrement");
 const pomodoroCount = document.getElementById("pomodoroCount");
+const addTask = document.querySelector(".addTask");
+const taskDiv = document.querySelector(".task");
+const buttonsContainer = document.querySelector(".buttonsContainer");
+const cancelBtn = document.getElementById("cancelBtn");
 
 // States
 let pomodoro = 0;
@@ -28,6 +31,24 @@ const durations = {
   longBreak: 15,
 };
 
+//add the event listener to the cancel button
+cancelBtn.addEventListener("click", () => {
+  //set the selected div display to none
+  taskDiv.style.display = "none";
+  //set the buttonsContainer display to none
+  buttonsContainer.style.display = "none";
+  //set the addTask display to flex
+  addTask.style.display = "flex";
+});
+//add the event listener to the addTask div
+addTask.addEventListener("click", () => {
+  //set the selected div display to flex
+  taskDiv.style.display = "flex";
+  //set the buttonsContainer display to none
+  buttonsContainer.style.display = "flex";
+  //set the addTask display to none
+  addTask.style.display = "none";
+});
 // add the event listeners to the increment and decrement buttons
 increment.addEventListener("click", () => {
   clickSound.currentTime = 0;
