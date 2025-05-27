@@ -15,6 +15,12 @@ const addTask = document.querySelector(".addTask");
 const taskDiv = document.querySelector(".task");
 const buttonsContainer = document.querySelector(".buttonsContainer");
 const cancelBtn = document.getElementById("cancelBtn");
+const saveBtn = document.getElementById("saveBtn");
+const taskInput = document.getElementById("taskInput");
+const taskNote = document.getElementById("note");
+const addNotes = document.querySelector(".addNotes");
+const noteArea = document.querySelector("textarea");
+const taskLine = document.querySelector(".taskLine");
 
 // States
 let pomodoro = 0;
@@ -31,6 +37,70 @@ const durations = {
   longBreak: 15,
 };
 
+//reset values when the page is refreshed
+window.onload = () => {
+  //reset the input fields values
+  taskInput.value = "";
+  taskNote.value = "";
+  
+};
+//add the evnet listener to the save button
+saveBtn.addEventListener("click", () => {
+  //get the value of the task input
+  const taskTitle = taskInput.value.trim();
+  //get the value of note input
+  const noteTitle = taskNote.value.trim();
+  console.log(pomodoroCount.innerText);
+  if (taskTitle) {
+    //create a new div element
+    const newTask = document.createElement("div");
+    //addd the class task to the new div
+    newTask.classList.add("createTask");
+    //create a new div element called taskHeader
+    const taskHeader = document.createElement("div");
+    //addd the class taskHeader to the new div
+    taskHeader.classList.add("taskHeader");
+    //create a new div element
+    const titleDiv = document.createElement("div");
+    //addd the class title to the new div
+    titleDiv.classList.add("titleDiv");
+    //add the icon to the new div
+    titleDiv.innerHTML = `<i class="fa-solid fa-circle-check checkIcon"></i>`;
+    //add the task title to the new div
+    titleDiv.innerHTML += `<div class="title">${taskTitle}</div>`;
+    //add the titleDiv to the new task
+    taskHeader.appendChild(titleDiv);
+    //create a new div element called count & edit
+    const editDiv = document.createElement("div");
+    //addd the class edit to the new div
+    editDiv.classList.add("edit");
+    //add the pomodoro count to the new div
+    editDiv.innerHTML += `<span class="count">0 / ${pomodoroCount.innerText}</span>`;
+    //crate a icon element
+    editDiv.innerHTML += `<i class="fa-solid fa-bars"></i>`;
+    //add the hamburgermenu to the new task
+    taskHeader.appendChild(editDiv);
+    //add the taskHeader to the new task
+    newTask.appendChild(taskHeader);
+    if (noteTitle) {
+      //create a new div element
+      const newNote = document.createElement("div");
+      //addd the class note to the new div
+      newNote.classList.add("note");
+      //add the value of the note input to the new div
+      newNote.innerHTML = `<span>${noteTitle}</span>`;
+      //add the new Note to the new Task
+      newTask.appendChild(newNote);
+    }
+    //insert the new task before the taskLine div
+    taskLine.parentNode.insertBefore(newTask, taskLine.nextSibling);
+  }
+  //reset all the values in task class div
+  taskInput.value = "";
+  taskNote.value = "";
+  pomodoroCount.innerText = 0;
+});
+
 //add the event listener to the cancel button
 cancelBtn.addEventListener("click", () => {
   //set the selected div display to none
@@ -40,6 +110,7 @@ cancelBtn.addEventListener("click", () => {
   //set the addTask display to flex
   addTask.style.display = "flex";
 });
+
 //add the event listener to the addTask div
 addTask.addEventListener("click", () => {
   //set the selected div display to flex
@@ -48,6 +119,13 @@ addTask.addEventListener("click", () => {
   buttonsContainer.style.display = "flex";
   //set the addTask display to none
   addTask.style.display = "none";
+});
+//add the addNotes event listener
+addNotes.addEventListener("click", () => {
+  //set the addNotes div display to flex
+  noteArea.style.display = "flex";
+  //set the addNotes display to none
+  addNotes.style.display = "none";
 });
 // add the event listeners to the increment and decrement buttons
 increment.addEventListener("click", () => {
