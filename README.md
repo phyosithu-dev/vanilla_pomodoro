@@ -2,13 +2,12 @@
 
 A minimalist and effective Pomodoro timer built with pure, "vanilla" JavaScript, HTML, and CSS. This application helps you manage your work and break times to stay focused and productive, and includes a simple task manager to track your goals for the day.
 
-[View Live Demo](#) &lt;-- *You can link to your deployed project here later!*
 
 ## Screenshot
 
 ![App Screenshot](![pomodoroOne](https://github.com/user-attachments/assets/6245ab29-2992-49b5-a09d-caeb3baab8ec)
 
-&lt;-- *To make this work, add a screenshot of your app named "screenshot.png" to your project folder.*
+&lt;
 
 ## About The Project
 
