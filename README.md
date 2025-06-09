@@ -4,9 +4,7 @@ A minimalist and effective Pomodoro timer built with pure, "vanilla" JavaScript,
 
 
 ## Screenshot
-
-![App Screenshot](![pomodoroOne](https://github.com/user-attachments/assets/6245ab29-2992-49b5-a09d-caeb3baab8ec)
-
+(![pomodoroOne](https://github.com/user-attachments/assets/6245ab29-2992-49b5-a09d-caeb3baab8ec)
 &lt;
 
 ## About The Project
