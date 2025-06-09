@@ -8,8 +8,6 @@ A minimalist and effective Pomodoro timer built with pure, "vanilla" JavaScript,
 ![App Screenshot]() 
 &lt;-- *To m![Uploading pomodo![pomodoroOne](https://github.com/user-attachments/assets/5fe4b24e-890e-454e-9b8f-f192c631ebd4)
 roOne.png…]()
-ake this work, add a screenshot![pomodoroTwo](https://github.com/user-attachments/assets/c92e47c2-3087-4ccb-8c37-7cba88bed476)
- of your app named "screenshot.png" to your project folder.*
 
 ## About The Project
 
